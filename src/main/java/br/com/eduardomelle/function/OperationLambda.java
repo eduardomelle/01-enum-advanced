@@ -3,40 +3,24 @@
  */
 package br.com.eduardomelle.function;
 
+import java.util.function.BiFunction;
+
 /**
  * @author eduardo
  *
  */
 public enum OperationLambda {
 
-	PLUS {
+	PLUS(Double::sum), MINUS((a, b) -> a - b), TIMES((a, b) -> a * b);
 
-		@Override
-		public double operate(double valueA, double valueB) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
+	private final BiFunction<Double, Double, Double> operation;
 
-	},
-	MINUS {
+	OperationLambda(BiFunction<Double, Double, Double> operation) {
+		this.operation = operation;
+	}
 
-		@Override
-		public double operate(double valueA, double valueB) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-	},
-	TIMES {
-
-		@Override
-		public double operate(double valueA, double valueB) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-	};
-
-	public abstract double operate(double valueA, double valueB);
+	public double operate(double valueA, double valueB) {
+		return this.operation.apply(valueA, valueB);
+	}
 
 }

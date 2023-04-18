@@ -9,12 +9,26 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<moneta.version>1.4.2</moneta.version>
+		<junit.version>5.8.2</junit.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.javamoney.moneta</groupId>
 			<artifactId>moneta-core</artifactId>
-			<version>1.4.2</version>
+			<version>${moneta.version}</version>
 		</dependency>
+		<dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 </project>
